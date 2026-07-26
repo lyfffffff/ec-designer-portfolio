@@ -6,11 +6,11 @@ backend:
   repo: lyfffffff/ec-designer-portfolio
   branch: main
   # OAuth 代理地址（指向 Cloudflare Pages Functions 的 /auth 端点）
-  base_url: https://ec-designer-portfolio.pages.dev
+  base_url: https://chenxueyu.pages.dev
   auth_endpoint: /auth
 
 # 站点地址
-site_url: https://ec-designer-portfolio.pages.dev
+site_url: https://chenxueyu.pages.dev
 
 # 媒体（图片）存储配置
 # media_folder: 上传图片时存到仓库的目录（相对仓库根）
