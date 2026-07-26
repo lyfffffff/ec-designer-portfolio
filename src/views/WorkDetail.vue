@@ -115,7 +115,7 @@ import { works, getWorkById } from "../data/works";
 import ImageLightbox from "../components/ImageLightbox.vue";
 
 const route = useRoute();
-const work = computed(() => getWorkById(route.params.id));
+const work = computed(() => getWorkById(String(route.params.id)));
 
 const currentIndex = computed(() =>
   works.findIndex((w) => w.id === Number(route.params.id)),

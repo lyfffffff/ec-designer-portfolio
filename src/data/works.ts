@@ -12,7 +12,18 @@ import img07 from '../../image/07.jpg'
 import img08 from '../../image/08.jpg'
 import img09 from '../../image/09.jpg'
 
-export const works = [
+export interface Work {
+  id: number
+  title: string
+  category: 'domestic' | 'crossBorder'
+  cover: string
+  images: string[]
+  description: string
+  tags: string[]
+  date: string
+}
+
+export const works: Work[] = [
   {
     id: 1,
     title: '护肤品主图精修',
@@ -106,11 +117,11 @@ export const works = [
 ]
 
 // 根据 id 获取单个作品
-export function getWorkById(id) {
+export function getWorkById(id: string | number): Work | undefined {
   return works.find((w) => w.id === Number(id))
 }
 
 // 获取精选作品（默认取前 count 个）
-export function getFeaturedWorks(count = 6) {
+export function getFeaturedWorks(count = 6): Work[] {
   return works.slice(0, count)
 }
