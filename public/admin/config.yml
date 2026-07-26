@@ -1,0 +1,46 @@
+# Decap CMS 配置
+# 文档：https://decapcms.org/docs/configuration-options/
+
+backend:
+  name: github
+  repo: lyfffffff/ec-designer-portfolio
+  branch: main
+  # OAuth 代理地址（指向 Cloudflare Pages Functions 的 /auth 端点）
+  base_url: https://ec-designer-portfolio.pages.dev
+  auth_endpoint: /auth
+
+# 站点地址
+site_url: https://ec-designer-portfolio.pages.dev
+
+# 媒体（图片）存储配置
+# media_folder: 上传图片时存到仓库的目录（相对仓库根）
+# public_folder: 前台引用图片时的 URL 前缀
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "works"
+    label: "作品"
+    label_singular: "作品"
+    folder: "src/content/works"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{id}}"
+    fields:
+      - { name: "id", label: "ID", widget: "number", required: true, hint: "输入一个不重复的数字编号" }
+      - { name: "title", label: "作品标题", widget: "string" }
+      - { name: "category", label: "分类", widget: "select", options: ["domestic", "crossBorder"] }
+      - { name: "cover", label: "封面图", widget: "image" }
+      - name: "images"
+        label: "详情图"
+        widget: "list"
+        required: false
+        field: { name: "image", label: "图片", widget: "image" }
+      - { name: "description", label: "设计说明", widget: "text" }
+      - name: "tags"
+        label: "标签"
+        widget: "list"
+        required: false
+      - { name: "date", label: "日期", widget: "string", hint: "格式：2024-03" }
