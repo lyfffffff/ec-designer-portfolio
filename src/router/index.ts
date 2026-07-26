@@ -28,6 +28,11 @@ const router = createRouter({
       name: 'contact',
       component: () => import('@/views/Contact.vue'),
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notFound',
+      component: () => import('@/views/NotFound.vue'),
+    },
   ],
   scrollBehavior() {
     return { top: 0 }
